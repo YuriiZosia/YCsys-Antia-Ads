@@ -19,7 +19,7 @@
 
   { "id": 7, "priority": 1, "action": { "type": "block" }, "condition": { "urlFilter": 
   "*reichelcormier.bid*", "resourceTypes": ["xmlhttprequest"] } },
-  
+
   { "id": 8, "priority": 1, "action": { "type": "block" }, "condition": { "urlFilter": 
   "*proppellerads.ru*", "resourceTypes": ["script", "xmlhttprequest", "sub_frame"] } },
 
@@ -54,5 +54,20 @@
   "*actionpay.ru*", "resourceTypes": ["script", "xmlhttprequest"] } },
 
   { "id": 19, "priority": 1, "action": { "type": "block" }, "condition": { "urlFilter": 
-  "*leadgidads.ru*", "resourceTypes": ["script", "xmlhttprequest"] } }
+  "*leadgidads.ru*", "resourceTypes": ["script", "xmlhttprequest"] } },
+
+  { "id": 20, "priority": 1, "action": { "type": "block" }, "condition": { "urlFilter":
+  "*777*", "resourceTypes": ["script", "xmlhttprequest", "image"] } },
+
+  { "id": 21, "priority": 1, "action": { "type": "block" }, "condition": { "urlFilter": 
+  "*getter.*", "resourceTypes": ["script", "xmlhttprequest"] } },
+
+  { "id": 22, "priority": 1, "action": { "type": "block" }, "condition": { "urlFilter": 
+  "*srv224.com*", "resourceTypes": ["script", "xmlhttprequest"] } },
+  
+  { "id": 23, "priority": 1, "action": { "type": "block" }, "condition": { "urlFilter": 
+  "*schulist.link*", "resourceTypes": ["sub_frame", "xmlhttprequest", "script"] } },
+
+  { "id": 24, "priority": 1, "action": { "type": "block" }, "condition": { "urlFilter": 
+  "*getter.*", "resourceTypes": ["sub_frame", "xmlhttprequest"] } }
 ]
