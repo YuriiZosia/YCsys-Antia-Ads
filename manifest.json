@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
   "name": "YCsys Antia-Ads",
-  "version": "1.0",
-  "description": "Легкий блокувальник реклами для фільмів (Uakino, Rezka)",
+  "version": "1.1",
+  "description": "Легкий блокувальник реклами для фільмів (Uakino, Rezka...)",
   "permissions": [
     "declarativeNetRequest",
     "declarativeNetRequestFeedback"

@@ -1,38 +1,58 @@
 [
-  {
-    "id": 1,
-    "priority": 1,
-    "action": { "type": "block" },
-    "condition": {
-      "urlFilter": "*franecki.net*",
-      "resourceTypes": ["xmlhttprequest", "image", "script"]
-    }
-  },
-  {
-    "id": 2,
-    "priority": 1,
-    "action": { "type": "block" },
-    "condition": {
-      "urlFilter": "*servetraff.com*",
-      "resourceTypes": ["xmlhttprequest", "script"]
-    }
-  },
-  {
-    "id": 3,
-    "priority": 1,
-    "action": { "type": "block" },
-    "condition": {
-      "urlFilter": "*pjstat.com*",
-      "resourceTypes": ["xmlhttprequest", "image"]
-    }
-  },
-  {
-    "id": 4,
-    "priority": 1,
-    "action": { "type": "block" },
-    "condition": {
-      "urlFilter": "*plrjs.org*",
-      "resourceTypes": ["xmlhttprequest"]
-    }
-  }
+  { "id": 1, "priority": 1, "action": { "type": "block" }, "condition": { "urlFilter": 
+  "*franecki.net*", "resourceTypes": ["script", "xmlhttprequest", "image"] } },
+
+  { "id": 2, "priority": 1, "action": { "type": "block" }, "condition": { "urlFilter": 
+  "*servetraff.com*", "resourceTypes": ["script", "xmlhttprequest"] } },
+
+  { "id": 3, "priority": 1, "action": { "type": "block" }, "condition": { "urlFilter": 
+  "*pjstat.com*", "resourceTypes": ["image", "xmlhttprequest"] } },
+
+  { "id": 4, "priority": 1, "action": { "type": "block" }, "condition": { "urlFilter": 
+  "*plrjs.org*", "resourceTypes": ["xmlhttprequest"] } },
+
+  { "id": 5, "priority": 1, "action": { "type": "block" }, "condition": { "urlFilter": 
+  "*nogravity*.click*", "resourceTypes": ["media", "xmlhttprequest"] } },
+
+  { "id": 6, "priority": 1, "action": { "type": "block" }, "condition": { "urlFilter": 
+  "*bashirian.biz*", "resourceTypes": ["script", "xmlhttprequest"] } },
+
+  { "id": 7, "priority": 1, "action": { "type": "block" }, "condition": { "urlFilter": 
+  "*reichelcormier.bid*", "resourceTypes": ["xmlhttprequest"] } },
+  
+  { "id": 8, "priority": 1, "action": { "type": "block" }, "condition": { "urlFilter": 
+  "*proppellerads.ru*", "resourceTypes": ["script", "xmlhttprequest", "sub_frame"] } },
+
+  { "id": 9, "priority": 1, "action": { "type": "block" }, "condition": { "urlFilter": 
+  "*adfox.ru*", "resourceTypes": ["script", "xmlhttprequest", "image"] } },
+
+  { "id": 10, "priority": 1, "action": { "type": "block" }, "condition": { "urlFilter": 
+  "*offergate.pro*", "resourceTypes": ["script", "xmlhttprequest", "sub_frame"] } },
+
+  { "id": 11, "priority": 1, "action": { "type": "block" }, "condition": { "urlFilter": 
+  "*admixer.net*", "resourceTypes": ["script", "xmlhttprequest", "image"] } },
+
+  { "id": 12, "priority": 1, "action": { "type": "block" }, "condition": { "urlFilter": 
+  "*luckyads.tech*", "resourceTypes": ["script", "xmlhttprequest"] } },
+
+  { "id": 13, "priority": 1, "action": { "type": "block" }, "condition": { "urlFilter": 
+  "*salesdoubler.com.ua*", "resourceTypes": ["script", "xmlhttprequest", "image"] } },
+
+  { "id": 14, "priority": 1, "action": { "type": "block" }, "condition": { "urlFilter": 
+  "*recreativ.com.ua*", "resourceTypes": ["script", "xmlhttprequest", "image"] } },
+
+  { "id": 15, "priority": 1, "action": { "type": "block" }, "condition": { "urlFilter": 
+  "*vast.videocdn.tv*", "resourceTypes": ["xmlhttprequest", "media"] } },
+
+  { "id": 16, "priority": 1, "action": { "type": "block" }, "condition": { "urlFilter": 
+  "*adwadvert.com.ua*", "resourceTypes": ["script", "xmlhttprequest"] } },
+
+  { "id": 17, "priority": 1, "action": { "type": "block" }, "condition": { "urlFilter": 
+  "*trafficdok.com*", "resourceTypes": ["script", "xmlhttprequest", "sub_frame"] } },
+
+  { "id": 18, "priority": 1, "action": { "type": "block" }, "condition": { "urlFilter": 
+  "*actionpay.ru*", "resourceTypes": ["script", "xmlhttprequest"] } },
+
+  { "id": 19, "priority": 1, "action": { "type": "block" }, "condition": { "urlFilter": 
+  "*leadgidads.ru*", "resourceTypes": ["script", "xmlhttprequest"] } }
 ]
