@@ -1,0 +1,38 @@
+{
+  "manifest_version": 3,
+  "name": "YCsys Antia-Ads",
+  "version": "1.0",
+  "description": "Легкий блокувальник реклами для фільмів (Uakino, Rezka)",
+  "permissions": [
+    "declarativeNetRequest",
+    "declarativeNetRequestFeedback"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "declarative_net_request": {
+    "rule_resources": [
+      {
+        "id": "ruleset_1",
+        "enabled": true,
+        "path": "rules.json"
+      }
+    ]
+  },
+  "content_scripts": [
+    {
+      "js": [
+        "content.js"
+      ],
+      "matches": [
+        "*://*.uakino.me/*",
+        "*://*.uakino.best/*",
+        "*://*.rezka.ag/*",
+        "*://*.kinogo.*/*",
+        "*://*.uaserials.pro/*"
+      ],
+      "run_at": "document_start",
+      "all_frames": true
+    }
+  ]
+}
