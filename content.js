@@ -1,7 +1,6 @@
-// === YCsys Antia-Ads: Content Wrapper (PRO Version) ===
+// === YCsys Antia-Ads: Content Wrapper (PRO+ Version 2026) ===
 
 chrome.runtime.sendMessage({ method: "getStatus" }, (response) => {
-    // Якщо сталася помилка зв'язку або статус false - виходимо і нічого не блокуємо
     if (chrome.runtime.lastError || !response || response.status === false) {
         console.log("YCsys: Antia-Ads на паузі.");
         return;
@@ -10,46 +9,64 @@ chrome.runtime.sendMessage({ method: "getStatus" }, (response) => {
 });
 
 function initAntiaAds() {
-    console.log('YCsys Antia-Ads: Захист активовано. Рівень: PRO.');
+    if (window.YCsysAntiaAdsInitialized) return;
+    window.YCsysAntiaAdsInitialized = true;
 
-    /**
-     * СПИСОК БЛОКУВАННЯ
-     * Додавай сюди нові домени або ключові слова "в стовпчик"
-     */
-    const AD_KEYWORDS = [
-        'vast',
-        'servetraff',
-        'plrjs',
-        'franecki',
-        'pjstat',
-        'nogravity',
-        'pre-roll',
-        'vpaid',
-        'bashirian',
-        'getter',   // Покриє .cfd та .fun
-        'srv224',
-        'schulist', // Брендування та фонова реклама
-        'iframeHS'  // Динамічні фрейми
-    ];
+    console.log('🚀 YCsys Antia-Ads: Захист активовано. Рівень: PRO+');
 
-    const emptyVast = `<?xml version="1.0" encoding="UTF-8"?><VAST version="2.0"></VAST>`;
+    /** ===================== НАЛАШТУВАННЯ ===================== */
+    const CONFIG = {
+        // Мережеве блокування (VAST/VPAID)
+        AD_KEYWORDS: [
+            'vast', 'servetraff', 'plrjs', 'franecki', 'pjstat', 'nogravity',
+            'pre-roll', 'vpaid', 'bashirian', 'getter', 'srv224', 'schulist', 'iframeHS',
 
-    /**
-     * Перевірка, чи URL містить хоча б одне слово зі списку блокування
-     */
-    const isAdUrl = (url) => {
-        if (typeof url !== 'string') return false;
-        return AD_KEYWORDS.some(keyword => url.toLowerCase().includes(keyword.toLowerCase()));
+            // 2026 актуальні мережі
+            'doubleclick', 'googlesyndication', 'googleads', 'google-ima', 'ima',
+            'adnxs', 'pubmatic', 'openx', 'rubiconproject', 'rubicon', 'criteo',
+            'smartadserver', 'adform', 'yieldmo', 'spotx', 'tremor', 'vidible',
+            'brightcove', 'prebid', 'bidder', 'propellerads', 'popads', 'videoadex',
+            'adserver', 'adtech', 'adsystem', 'ad-delivery', 'admanager', 'adswizz',
+            'mgid', 'revcontent', 'taboola', 'outbrain', 'sponsored', 'preroll',
+            'vast-ad', 'vpaid-ad', 'ad-vast', 'ad-vpaid', 'adsterra', 'hilltopads',
+            'exoclick', 'trafficfactory', 'juicyads'
+        ],
+
+        emptyVast: `<?xml version="1.0" encoding="UTF-8"?><VAST version="2.0"></VAST>`,
+
+        // Селектори для відео-реклами
+        adSelectors: [
+            '.pjs-vast-ad-info', '.video-ad-label', '.pjs-ad-skip-button',
+            '[id*="vast"]', '[class*="vast-ad"]', '[class*="vast-"]', '[class*="ima-ad"]',
+            '.ima-container', '.ima-ad-container',
+            '[class*="ad-"]', '[id*="ad-"]', '.ad', '.ads', '.ad-container',
+            '.ad-player', '.video-ad', '.ad-video', '.ad-unit', '.commercial',
+            '.ad-label', '.ads-label', '.advertisement', '.ad-banner', '.videoAd',
+            '[class*="skip-button"]', '[class*="skip-ad"]', '[class*="ad-skip"]',
+            '.skip-ad', '.ad-skip', '.adSkip', '.skipButton',
+            '[aria-label*="Skip"]', '[title*="Skip ad"]',
+            '.jw-ad', '.jwplayer .ad', '.vjs-ad', '.vjs-ad-container',
+            '.hls-ad', '.brightcove-ad', '.preroll', '.midroll', '.postroll',
+            '[data-ad]', '[data-ad-type]', '[data-advert]', '.sponsored-video',
+            '.overlay-ad', '.video-ads', '.ad-overlay'
+        ].join(', ')
     };
 
-    // --- Перехоплення Fetch ---
-    const { fetch: originalFetch } = window;
-    window.fetch = async (...args) => {
-        const url = typeof args[0] === 'string' ? args[0] : args[0].url;
+    /** ===================== МЕРЕЖЕВЕ БЛОКУВАННЯ ===================== */
+    const isAdUrl = (url) => {
+        if (typeof url !== 'string' || url.length < 5) return false;
+        const lower = url.toLowerCase();
+        return CONFIG.AD_KEYWORDS.some(k => lower.includes(k.toLowerCase()));
+    };
 
-        if (isAdUrl(url)) {
-            console.log('YCsys: [Fetch] Підмінено на порожній VAST:', url);
-            return new Response(emptyVast, {
+    // Fetch
+    const originalFetch = window.fetch;
+    window.fetch = async (...args) => {
+        let url = args[0];
+        if (url instanceof Request) url = url.url;
+        if (typeof url === 'string' && isAdUrl(url)) {
+            console.log('YCsys [Fetch] ✅ Підмінено VAST:', url);
+            return new Response(CONFIG.emptyVast, {
                 status: 200,
                 headers: { 'Content-Type': 'text/xml' }
             });
@@ -57,133 +74,135 @@ function initAntiaAds() {
         return originalFetch(...args);
     };
 
-    // --- Перехоплення XMLHttpRequest ---
+    // XMLHttpRequest
     const rawOpen = XMLHttpRequest.prototype.open;
     XMLHttpRequest.prototype.open = function (method, url) {
-        if (isAdUrl(url)) {
-            console.log('YCsys: [XHR] Блоковано рекламу:', url);
-            return rawOpen.call(this, method, 'data:text/xml;charset=utf-8,' + encodeURIComponent(emptyVast));
+        if (typeof url === 'string' && isAdUrl(url)) {
+            console.log('YCsys [XHR] ✅ Блоковано:', url);
+            return rawOpen.call(this, method, 'data:text/xml;charset=utf-8,' + encodeURIComponent(CONFIG.emptyVast));
         }
         return rawOpen.apply(this, arguments);
     };
 
-    // --- Авто-пропуск відео-реклами ---
+    /** ===================== АВТО-ПРОПУСК ВІДЕО ===================== */
+    let skipInterval;
     const skipAdVideo = () => {
         const videos = document.querySelectorAll('video');
+        if (!videos.length) return;
+
+        const isAdContainerVisible = !!document.querySelector(CONFIG.adSelectors);
+        const skipBtn = document.querySelector('.pjs-ad-skip-button, [class*="skip-button"], [class*="ad-skip"]');
+
         videos.forEach(v => {
-            const isAdContainerVisible = document.querySelector('.pjs-vast-ad-info, .video-ad-label, [id*="vast"], [class*="vast-ad"]');
+            if (!v.duration || !isFinite(v.duration) || v.readyState < 2) return;
 
-            if (isAdContainerVisible || (v.duration > 0 && v.duration < 60)) {
-                v.muted = true;
-                v.playbackRate = 16.0;
-                if (isFinite(v.duration) && v.currentTime < v.duration) {
-                    v.currentTime = v.duration - 0.1;
+            const duration = v.duration;
+            const isMovie = duration > 300;
+
+            if (isMovie) {
+                if (v.playbackRate > 2) {
+                    v.playbackRate = 1.0;
+                    console.log('YCsys [Safety] Фільм — швидкість скинуто до 1x');
                 }
+                return;
+            }
+
+            const isShortAd = duration > 0 && duration < 60;
+
+            if (isAdContainerVisible || isShortAd) {
+                if (v.playbackRate !== 16) {
+                    v.muted = true;
+                    v.playbackRate = 16;
+                    console.log('YCsys [AdSkip] Реклама → 16x + mute');
+                }
+
+                if (v.currentTime < duration - 1) {
+                    v.currentTime = duration - 0.3;
+                }
+
+                if (skipBtn) {
+                    skipBtn.click();
+                }
+            } else if (v.playbackRate > 2) {
+                v.playbackRate = 1.0;
+                v.muted = false;
             }
         });
     };
-    setInterval(skipAdVideo, 500);
 
-    // --- Розумний сканер динамічних банерів (MutationObserver) ---
+    // Запуск з requestAnimationFrame (економніше)
+    const startVideoSkipper = () => {
+        skipAdVideo();
+        skipInterval = setTimeout(startVideoSkipper, 420); // ~2.4 рази на секунду — оптимально
+    };
+
+    /** ===================== ДИНАМІЧНЕ ЧИЩЕННЯ ===================== */
     const cleanDynamicAds = () => {
-        // 1. Пошук по посиланнях, фреймах та блоках з фоном
-        const targets = document.querySelectorAll('a, iframe, ins, embed, div[style*="background-image"]');
-        targets.forEach(el => {
-            const source = el.href || el.src || (el.style && el.style.backgroundImage) || "";
-            if (isAdUrl(source)) {
+        document.querySelectorAll('a, iframe, ins, embed, div[style*="background-image"]').forEach(el => {
+            const src = el.href || el.src || el.getAttribute('data-src') || '';
+            if (isAdUrl(src)) {
                 const container = el.closest('div') || el;
+                container.style.display = 'none';
                 container.remove();
             }
         });
 
-        // 2. Специфічна зачистка контейнерів брендування
-        const brandingContainers = document.querySelectorAll('[id*="branding"], [class*="branding"], [id*="banner"]');
-        brandingContainers.forEach(container => {
-            if (container.innerHTML.includes('schulist') || container.innerHTML.includes('getter')) {
-                container.remove();
+        // Брендинг
+        document.querySelectorAll('[id*="branding"], [class*="branding"], [id*="banner"]').forEach(el => {
+            if (el.innerHTML && (el.innerHTML.includes('schulist') || el.innerHTML.includes('getter'))) {
+                el.remove();
             }
         });
 
-        // 3. Виправлення зсуву сторінки (якщо реклама відсунула контент вниз)
-        if (document.body && (document.body.style.marginTop || document.body.style.paddingTop)) {
-            document.body.style.marginTop = '0px';
-            document.body.style.paddingTop = '0px';
+        // Виправлення зсуву
+        if (document.body) {
+            document.body.style.marginTop = '0';
+            document.body.style.paddingTop = '0';
         }
     };
 
-    // --- Косметичні CSS фільтри (Версія MAX Protection) ---
+    /** ===================== CSS ===================== */
     const injectStyles = () => {
-        const target = document.head || document.documentElement || document.body;
-        if (!target) {
-            requestAnimationFrame(injectStyles);
-            return;
-        }
-
-        // Захист від дублювання
         if (document.getElementById('yc-antia-styles')) return;
 
         const style = document.createElement('style');
         style.id = 'yc-antia-styles';
         style.innerHTML = `
-            /* Статичні блоки */
             .pjs-vast-ad-container, [id*="vast"], [class*="vast"], .video-ad-label,
             #rezka-sidebar-ads, .b-ads_ua, [stats-invp], .ads-partners,
-            
-            /* Динамічні плаваючі вікна (казино) */
-            div[style*="z-index: 2147483647"], 
-            div[style*="position: fixed"][style*="bottom: 0"],
-            
-            /* Фрейми паразитів */
-            iframe[src*="getter"], iframe[src*="srv224"], iframe[src*="schulist"], iframe[id*="google_ads"],
-            
-            /* Пусті залишки */
-            ins.adsbygoogle, .ad-box, .ad-container { 
+            div[style*="z-index: 2147483647"], div[style*="position: fixed"][style*="bottom: 0"],
+            iframe[src*="getter"], iframe[src*="srv224"], iframe[src*="schulist"],
+            ins.adsbygoogle, .ad-box, .ad-container, .ad-overlay { 
                 display: none !important; 
-                pointer-events: none !important; 
-                opacity: 0 !important;
-                height: 0 !important;
-                width: 0 !important;
+                height: 0 !important; 
+                width: 0 !important; 
                 visibility: hidden !important;
             }
-
-            /* Видалення фонового брендування */
             body[style*="background-image"], body[style*="background: url"] {
-                background-image: none !important;
-                background: none !important;
-                background-color: #000 !important;
+                background: #000 !important;
             }
         `;
-        target.appendChild(style);
+        (document.head || document.documentElement).appendChild(style);
     };
 
-    // --- Ініціалізація та спостереження за DOM ---
+    /** ===================== ІНІЦІАЛІЗАЦІЯ ===================== */
     const initDOMProtection = () => {
         injectStyles();
         cleanDynamicAds();
+        startVideoSkipper();
 
-        // Запускаємо сканер, який слідкує за новими елементами
-        const observer = new MutationObserver(() => {
-            cleanDynamicAds();
+        // MutationObserver
+        const observer = new MutationObserver(cleanDynamicAds);
+        observer.observe(document.documentElement || document.body, {
+            childList: true,
+            subtree: true
         });
-        
-        if (document.body || document.documentElement) {
-            observer.observe(document.body || document.documentElement, {
-                childList: true,
-                subtree: true
-            });
-        }
+
+        console.log('YCsys: Повний захист активовано (мережа + відео + DOM)');
     };
 
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', initDOMProtection);
-        // Спроба вставити стилі якомога раніше
-        const earlyObserver = new MutationObserver((mutations, obs) => {
-            if (document.head || document.documentElement) {
-                injectStyles();
-                obs.disconnect();
-            }
-        });
-        earlyObserver.observe(document.documentElement, { childList: true });
     } else {
         initDOMProtection();
     }
