@@ -86,49 +86,85 @@ function initAntiaAds() {
 
     /** ===================== АВТО-ПРОПУСК ВІДЕО ===================== */
     let skipInterval;
+    // Змінні для модуля "Дефібрилятор" (додай їх перед функцією skipAdVideo)
+    let lastMovieTime = 0;
+    let bufferingTicks = 0;
+
+    // --- Авто-пропуск відео-реклами (Версія v1.3.3 із Дефібрилятором) ---
     const skipAdVideo = () => {
         const videos = document.querySelectorAll('video');
-        if (!videos.length) return;
-
-        const isAdContainerVisible = !!document.querySelector(CONFIG.adSelectors);
-        const skipBtn = document.querySelector('.pjs-ad-skip-button, [class*="skip-button"], [class*="ad-skip"]');
+        const adSelectors = '.pjs-vast-ad-info, .video-ad-label, [id*="vast"], [class*="vast-ad"], .pjs-ad-skip-button';
+        const isAdContainerVisible = !!document.querySelector(adSelectors);
 
         videos.forEach(v => {
-            if (!v.duration || !isFinite(v.duration) || v.readyState < 2) return;
-
             const duration = v.duration;
-            const isMovie = duration > 300;
+            
+            // 🛡️ ЗАПОБІЖНИК YCsys: Якщо відео > 5 хв (300с), це точно фільм/серія
+            const isMovie = isFinite(duration) && duration > 300;
 
             if (isMovie) {
-                if (v.playbackRate > 2) {
+                if (v.playbackRate > 2.0) {
                     v.playbackRate = 1.0;
-                    console.log('YCsys [Safety] Фільм — швидкість скинуто до 1x');
+                    v.muted = false;
                 }
-                return;
+
+                // ⚡ YCsys Defibrillator (Захист від нескінченної загрузки мід-ролів)
+                if (!v.paused) {
+                    const timeDiff = v.currentTime - lastMovieTime;
+                    
+                    // Якщо за 500мс відео просунулося менше ніж на 0.1с — воно "заїкається" або висить
+                    if (timeDiff >= 0 && timeDiff < 0.2) {
+                        bufferingTicks++;
+                    } else {
+                        bufferingTicks = 0; // Відновлюємо лічильник, якщо відео йде нормально
+                    }
+
+                    // Якщо плеєр "завис" на 3 секунди (6 тіків по 500мс)
+                    if (bufferingTicks > 6) {
+                        console.log('YCsys [Defibrillator]: Виявлено зависання плеєра (мід-рол баг). Робимо мікро-зсув...');
+                        
+                        // Імітуємо клік по повзунку (як ти робив вручну)
+                        v.currentTime += 0.5; 
+                        
+                        // Пробуємо натиснути кнопку пропуску, раптом вона прихована під CSS
+                        const skipBtn = document.querySelector('.pjs-ad-skip-button, [class*="skip-button"]');
+                        if (skipBtn) skipBtn.click();
+                        
+                        bufferingTicks = 0; // Скидаємо лічильник, щоб не стрибало постійно
+                    }
+                } else {
+                    bufferingTicks = 0; // Скидаємо, якщо ти сам поставив на паузу (йде заварювати чай)
+                }
+                lastMovieTime = v.currentTime;
+                // -------------------------------------------------------------
+
+                return; // ПРИПИНЯЄМО будь-які дії для цього відео
             }
 
-            const isShortAd = duration > 0 && duration < 60;
+            // Умова для звичайної короткої відео-реклами
+            const isShortAd = isFinite(duration) && duration > 0 && duration < 60;
 
             if (isAdContainerVisible || isShortAd) {
-                if (v.playbackRate !== 16) {
-                    v.muted = true;
-                    v.playbackRate = 16;
-                    console.log('YCsys [AdSkip] Реклама → 16x + mute');
-                }
-
-                if (v.currentTime < duration - 1) {
+                v.muted = true;
+                v.playbackRate = 16.0;
+                
+                if (isFinite(duration) && v.currentTime < duration - 0.5) {
                     v.currentTime = duration - 0.3;
                 }
-
-                if (skipBtn) {
-                    skipBtn.click();
+                
+                const skipButton = document.querySelector('.pjs-ad-skip-button, [class*="skip-button"]');
+                if (skipButton) skipButton.click();
+            } else {
+                if (v.playbackRate > 2.0) {
+                    v.playbackRate = 1.0;
+                    v.muted = false;
                 }
-            } else if (v.playbackRate > 2) {
-                v.playbackRate = 1.0;
-                v.muted = false;
             }
         });
     };
+
+    // Запуск перевірки плеєра кожні 500мс
+    setInterval(skipAdVideo, 500);
 
     // Запуск з requestAnimationFrame (економніше)
     const startVideoSkipper = () => {
