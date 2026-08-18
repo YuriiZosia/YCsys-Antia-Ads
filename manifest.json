@@ -22,7 +22,8 @@
     "*://*.kinogo.cc/*",
     "*://*.kinogo.biz/*",
     "*://*.uaserials.pro/*",
-    "*://*.ashdi.vip/*"
+    "*://*.ashdi.vip/*",
+    "*://*.lavakino.cc/*"
   ],
   "icons": {
     "32": "icons/32x32.png",
@@ -61,7 +62,8 @@
         "*://*.kinogo.cc/*",
         "*://*.kinogo.biz/*",
         "*://*.uaserials.pro/*",
-        "*://*.ashdi.vip/*"
+        "*://*.ashdi.vip/*",
+        "*://*.lavakino.cc/*"
       ],
       "run_at": "document_start",
       "all_frames": true
