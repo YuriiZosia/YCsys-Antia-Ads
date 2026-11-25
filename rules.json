@@ -1,47 +1,1378 @@
 [
-  { "id": 1, "priority": 1, "action": { "type": "block" }, "condition": { "urlFilter": "*franecki.net*", "resourceTypes": ["script", "xmlhttprequest", "image"] } },
-  { "id": 2, "priority": 1, "action": { "type": "block" }, "condition": { "urlFilter": "*servetraff.com*", "resourceTypes": ["script", "xmlhttprequest"] } },
-  { "id": 3, "priority": 1, "action": { "type": "block" }, "condition": { "urlFilter": "*pjstat.com*", "resourceTypes": ["image", "xmlhttprequest"] } },
-  { "id": 4, "priority": 1, "action": { "type": "block" }, "condition": { "urlFilter": "*plrjs.org*", "resourceTypes": ["xmlhttprequest"] } },
-  { "id": 5, "priority": 1, "action": { "type": "block" }, "condition": { "urlFilter": "*nogravity*.click*", "resourceTypes": ["media", "xmlhttprequest"] } },
-  { "id": 6, "priority": 1, "action": { "type": "block" }, "condition": { "urlFilter": "*bashirian.biz*", "resourceTypes": ["script", "xmlhttprequest"] } },
-  { "id": 7, "priority": 1, "action": { "type": "block" }, "condition": { "urlFilter": "*reichelcormier.bid*", "resourceTypes": ["xmlhttprequest"] } },
-  { "id": 8, "priority": 1, "action": { "type": "block" }, "condition": { "urlFilter": "*proppellerads.ru*", "resourceTypes": ["script", "xmlhttprequest", "sub_frame"] } },
-  { "id": 9, "priority": 1, "action": { "type": "block" }, "condition": { "urlFilter": "*adfox.ru*", "resourceTypes": ["script", "xmlhttprequest", "image"] } },
-  { "id": 10, "priority": 1, "action": { "type": "block" }, "condition": { "urlFilter": "*offergate.pro*", "resourceTypes": ["script", "xmlhttprequest", "sub_frame"] } },
-  { "id": 11, "priority": 1, "action": { "type": "block" }, "condition": { "urlFilter": "*admixer.net*", "resourceTypes": ["script", "xmlhttprequest", "image"] } },
-  { "id": 12, "priority": 1, "action": { "type": "block" }, "condition": { "urlFilter": "*luckyads.tech*", "resourceTypes": ["script", "xmlhttprequest"] } },
-  { "id": 13, "priority": 1, "action": { "type": "block" }, "condition": { "urlFilter": "*salesdoubler.com.ua*", "resourceTypes": ["script", "xmlhttprequest", "image"] } },
-  { "id": 14, "priority": 1, "action": { "type": "block" }, "condition": { "urlFilter": "*recreativ.com.ua*", "resourceTypes": ["script", "xmlhttprequest", "image"] } },
-  { "id": 15, "priority": 1, "action": { "type": "block" }, "condition": { "urlFilter": "*vast.videocdn.tv*", "resourceTypes": ["xmlhttprequest", "media"] } },
-  { "id": 16, "priority": 1, "action": { "type": "block" }, "condition": { "urlFilter": "*adwadvert.com.ua*", "resourceTypes": ["script", "xmlhttprequest"] } },
-  { "id": 17, "priority": 1, "action": { "type": "block" }, "condition": { "urlFilter": "*trafficdok.com*", "resourceTypes": ["script", "xmlhttprequest", "sub_frame"] } },
-  { "id": 18, "priority": 1, "action": { "type": "block" }, "condition": { "urlFilter": "*actionpay.ru*", "resourceTypes": ["script", "xmlhttprequest"] } },
-  { "id": 19, "priority": 1, "action": { "type": "block" }, "condition": { "urlFilter": "*leadgidads.ru*", "resourceTypes": ["script", "xmlhttprequest"] } },
-  { "id": 20, "priority": 1, "action": { "type": "block" }, "condition": { "urlFilter": "*getter.*", "resourceTypes": ["script", "xmlhttprequest", "sub_frame"] } },
-  { "id": 21, "priority": 1, "action": { "type": "block" }, "condition": { "urlFilter": "*srv224.com*", "resourceTypes": ["script", "xmlhttprequest"] } },
-  { "id": 22, "priority": 1, "action": { "type": "block" }, "condition": { "urlFilter": "*schulist.link*", "resourceTypes": ["sub_frame", "xmlhttprequest", "script"] } },
-  { "id": 23, "priority": 1, "action": { "type": "block" }, "condition": { "urlFilter": "*adsterra.*", "resourceTypes": ["script", "xmlhttprequest", "sub_frame", "image"] } },
-  { "id": 24, "priority": 1, "action": { "type": "block" }, "condition": { "urlFilter": "*hilltopads.*", "resourceTypes": ["script", "xmlhttprequest", "sub_frame"] } },
-  { "id": 25, "priority": 1, "action": { "type": "block" }, "condition": { "urlFilter": "*exoclick.*", "resourceTypes": ["script", "xmlhttprequest", "sub_frame", "media"] } },
-  { "id": 26, "priority": 1, "action": { "type": "block" }, "condition": { "urlFilter": "*trafficfactory.*", "resourceTypes": ["script", "xmlhttprequest", "media"] } },
-  { "id": 27, "priority": 1, "action": { "type": "block" }, "condition": { "urlFilter": "*juicyads.*", "resourceTypes": ["script", "xmlhttprequest", "sub_frame"] } },
-  { "id": 28, "priority": 1, "action": { "type": "block" }, "condition": { "urlFilter": "*popads.net*", "resourceTypes": ["script", "xmlhttprequest", "sub_frame"] } },
-  { "id": 29, "priority": 1, "action": { "type": "block" }, "condition": { "urlFilter": "*trafficstars.*", "resourceTypes": ["script", "xmlhttprequest"] } },
-  { "id": 30, "priority": 1, "action": { "type": "block" }, "condition": { "urlFilter": "*clickadilla.*", "resourceTypes": ["script", "xmlhttprequest", "sub_frame"] } },
-  { "id": 31, "priority": 1, "action": { "type": "block" }, "condition": { "urlFilter": "*admaven.*", "resourceTypes": ["script", "xmlhttprequest"] } },
-  { "id": 32, "priority": 1, "action": { "type": "block" }, "condition": { "urlFilter": "*rollerads.*", "resourceTypes": ["script", "xmlhttprequest", "sub_frame"] } },
-  { "id": 33, "priority": 1, "action": { "type": "block" }, "condition": { "urlFilter": "*plugrush.*", "resourceTypes": ["script", "xmlhttprequest"] } },
-  { "id": 34, "priority": 1, "action": { "type": "block" }, "condition": { "urlFilter": "*mgid.com*", "resourceTypes": ["script", "xmlhttprequest", "image"] } },
-  { "id": 35, "priority": 1, "action": { "type": "block" }, "condition": { "urlFilter": "*revcontent.*", "resourceTypes": ["script", "xmlhttprequest"] } },
-  { "id": 36, "priority": 1, "action": { "type": "block" }, "condition": { "urlFilter": "*taboola.*", "resourceTypes": ["script", "xmlhttprequest"] } },
-  { "id": 37, "priority": 1, "action": { "type": "block" }, "condition": { "urlFilter": "*outbrain.*", "resourceTypes": ["script", "xmlhttprequest"] } },
-  { "id": 38, "priority": 1, "action": { "type": "block" }, "condition": { "urlFilter": "*videoadex.*", "resourceTypes": ["xmlhttprequest", "media"] } },
-  { "id": 39, "priority": 1, "action": { "type": "block" }, "condition": { "urlFilter": "*ad-delivery.*", "resourceTypes": ["script", "xmlhttprequest"] } },
-  { "id": 40, "priority": 1, "action": { "type": "block" }, "condition": { "urlFilter": "*adserver.*", "resourceTypes": ["script", "xmlhttprequest", "sub_frame"] } },
-  { "id": 41, "priority": 1, "action": { "type": "block" }, "condition": { "urlFilter": "*propellerads.*", "resourceTypes": ["script", "xmlhttprequest", "sub_frame"] } },
-  { "id": 42, "priority": 1, "action": { "type": "block" }, "condition": { "urlFilter": "*doubleclick.*", "resourceTypes": ["script", "xmlhttprequest"] } },
-  { "id": 43, "priority": 1, "action": { "type": "block" }, "condition": { "urlFilter": "*googlesyndication.*", "resourceTypes": ["script", "xmlhttprequest"] } },
-  { "id": 44, "priority": 1, "action": { "type": "block" }, "condition": { "urlFilter": "*prebid.*", "resourceTypes": ["script", "xmlhttprequest"] } },
-  { "id": 45, "priority": 1, "action": { "type": "block" }, "condition": { "urlFilter": "*bidder.*", "resourceTypes": ["script", "xmlhttprequest"] } }
+  {
+    "id": 1,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "||franecki.net^",
+      "topDomains": [
+        "uakino.me",
+        "uakino.best",
+        "rezka.ag",
+        "rezka.me",
+        "rezka.ad",
+        "rezka.cc",
+        "kinogo.cc",
+        "kinogo.biz",
+        "uaserials.pro",
+        "ashdi.vip",
+        "lavakino.cc"
+      ],
+      "resourceTypes": [
+        "script",
+        "xmlhttprequest",
+        "sub_frame",
+        "image",
+        "media",
+        "stylesheet",
+        "ping"
+      ]
+    }
+  },
+  {
+    "id": 2,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "||servetraff.com^",
+      "topDomains": [
+        "uakino.me",
+        "uakino.best",
+        "rezka.ag",
+        "rezka.me",
+        "rezka.ad",
+        "rezka.cc",
+        "kinogo.cc",
+        "kinogo.biz",
+        "uaserials.pro",
+        "ashdi.vip",
+        "lavakino.cc"
+      ],
+      "resourceTypes": [
+        "script",
+        "xmlhttprequest",
+        "sub_frame",
+        "image",
+        "media",
+        "stylesheet",
+        "ping"
+      ]
+    }
+  },
+  {
+    "id": 3,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "||pjstat.com^",
+      "topDomains": [
+        "uakino.me",
+        "uakino.best",
+        "rezka.ag",
+        "rezka.me",
+        "rezka.ad",
+        "rezka.cc",
+        "kinogo.cc",
+        "kinogo.biz",
+        "uaserials.pro",
+        "ashdi.vip",
+        "lavakino.cc"
+      ],
+      "resourceTypes": [
+        "script",
+        "xmlhttprequest",
+        "sub_frame",
+        "image",
+        "media",
+        "stylesheet",
+        "ping"
+      ]
+    }
+  },
+  {
+    "id": 4,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "||plrjs.org^",
+      "topDomains": [
+        "uakino.me",
+        "uakino.best",
+        "rezka.ag",
+        "rezka.me",
+        "rezka.ad",
+        "rezka.cc",
+        "kinogo.cc",
+        "kinogo.biz",
+        "uaserials.pro",
+        "ashdi.vip",
+        "lavakino.cc"
+      ],
+      "resourceTypes": [
+        "script",
+        "xmlhttprequest",
+        "sub_frame",
+        "image",
+        "media",
+        "stylesheet",
+        "ping"
+      ]
+    }
+  },
+  {
+    "id": 5,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "||nogravity.click^",
+      "topDomains": [
+        "uakino.me",
+        "uakino.best",
+        "rezka.ag",
+        "rezka.me",
+        "rezka.ad",
+        "rezka.cc",
+        "kinogo.cc",
+        "kinogo.biz",
+        "uaserials.pro",
+        "ashdi.vip",
+        "lavakino.cc"
+      ],
+      "resourceTypes": [
+        "script",
+        "xmlhttprequest",
+        "sub_frame",
+        "image",
+        "media",
+        "stylesheet",
+        "ping"
+      ]
+    }
+  },
+  {
+    "id": 6,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "||bashirian.biz^",
+      "topDomains": [
+        "uakino.me",
+        "uakino.best",
+        "rezka.ag",
+        "rezka.me",
+        "rezka.ad",
+        "rezka.cc",
+        "kinogo.cc",
+        "kinogo.biz",
+        "uaserials.pro",
+        "ashdi.vip",
+        "lavakino.cc"
+      ],
+      "resourceTypes": [
+        "script",
+        "xmlhttprequest",
+        "sub_frame",
+        "image",
+        "media",
+        "stylesheet",
+        "ping"
+      ]
+    }
+  },
+  {
+    "id": 7,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "||reichelcormier.bid^",
+      "topDomains": [
+        "uakino.me",
+        "uakino.best",
+        "rezka.ag",
+        "rezka.me",
+        "rezka.ad",
+        "rezka.cc",
+        "kinogo.cc",
+        "kinogo.biz",
+        "uaserials.pro",
+        "ashdi.vip",
+        "lavakino.cc"
+      ],
+      "resourceTypes": [
+        "script",
+        "xmlhttprequest",
+        "sub_frame",
+        "image",
+        "media",
+        "stylesheet",
+        "ping"
+      ]
+    }
+  },
+  {
+    "id": 8,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "||proppellerads.ru^",
+      "topDomains": [
+        "uakino.me",
+        "uakino.best",
+        "rezka.ag",
+        "rezka.me",
+        "rezka.ad",
+        "rezka.cc",
+        "kinogo.cc",
+        "kinogo.biz",
+        "uaserials.pro",
+        "ashdi.vip",
+        "lavakino.cc"
+      ],
+      "resourceTypes": [
+        "script",
+        "xmlhttprequest",
+        "sub_frame",
+        "image",
+        "media",
+        "stylesheet",
+        "ping"
+      ]
+    }
+  },
+  {
+    "id": 9,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "||adfox.ru^",
+      "topDomains": [
+        "uakino.me",
+        "uakino.best",
+        "rezka.ag",
+        "rezka.me",
+        "rezka.ad",
+        "rezka.cc",
+        "kinogo.cc",
+        "kinogo.biz",
+        "uaserials.pro",
+        "ashdi.vip",
+        "lavakino.cc"
+      ],
+      "resourceTypes": [
+        "script",
+        "xmlhttprequest",
+        "sub_frame",
+        "image",
+        "media",
+        "stylesheet",
+        "ping"
+      ]
+    }
+  },
+  {
+    "id": 10,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "||offergate.pro^",
+      "topDomains": [
+        "uakino.me",
+        "uakino.best",
+        "rezka.ag",
+        "rezka.me",
+        "rezka.ad",
+        "rezka.cc",
+        "kinogo.cc",
+        "kinogo.biz",
+        "uaserials.pro",
+        "ashdi.vip",
+        "lavakino.cc"
+      ],
+      "resourceTypes": [
+        "script",
+        "xmlhttprequest",
+        "sub_frame",
+        "image",
+        "media",
+        "stylesheet",
+        "ping"
+      ]
+    }
+  },
+  {
+    "id": 11,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "||admixer.net^",
+      "topDomains": [
+        "uakino.me",
+        "uakino.best",
+        "rezka.ag",
+        "rezka.me",
+        "rezka.ad",
+        "rezka.cc",
+        "kinogo.cc",
+        "kinogo.biz",
+        "uaserials.pro",
+        "ashdi.vip",
+        "lavakino.cc"
+      ],
+      "resourceTypes": [
+        "script",
+        "xmlhttprequest",
+        "sub_frame",
+        "image",
+        "media",
+        "stylesheet",
+        "ping"
+      ]
+    }
+  },
+  {
+    "id": 12,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "||luckyads.tech^",
+      "topDomains": [
+        "uakino.me",
+        "uakino.best",
+        "rezka.ag",
+        "rezka.me",
+        "rezka.ad",
+        "rezka.cc",
+        "kinogo.cc",
+        "kinogo.biz",
+        "uaserials.pro",
+        "ashdi.vip",
+        "lavakino.cc"
+      ],
+      "resourceTypes": [
+        "script",
+        "xmlhttprequest",
+        "sub_frame",
+        "image",
+        "media",
+        "stylesheet",
+        "ping"
+      ]
+    }
+  },
+  {
+    "id": 13,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "||salesdoubler.com.ua^",
+      "topDomains": [
+        "uakino.me",
+        "uakino.best",
+        "rezka.ag",
+        "rezka.me",
+        "rezka.ad",
+        "rezka.cc",
+        "kinogo.cc",
+        "kinogo.biz",
+        "uaserials.pro",
+        "ashdi.vip",
+        "lavakino.cc"
+      ],
+      "resourceTypes": [
+        "script",
+        "xmlhttprequest",
+        "sub_frame",
+        "image",
+        "media",
+        "stylesheet",
+        "ping"
+      ]
+    }
+  },
+  {
+    "id": 14,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "||recreativ.com.ua^",
+      "topDomains": [
+        "uakino.me",
+        "uakino.best",
+        "rezka.ag",
+        "rezka.me",
+        "rezka.ad",
+        "rezka.cc",
+        "kinogo.cc",
+        "kinogo.biz",
+        "uaserials.pro",
+        "ashdi.vip",
+        "lavakino.cc"
+      ],
+      "resourceTypes": [
+        "script",
+        "xmlhttprequest",
+        "sub_frame",
+        "image",
+        "media",
+        "stylesheet",
+        "ping"
+      ]
+    }
+  },
+  {
+    "id": 15,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "||vast.videocdn.tv^",
+      "topDomains": [
+        "uakino.me",
+        "uakino.best",
+        "rezka.ag",
+        "rezka.me",
+        "rezka.ad",
+        "rezka.cc",
+        "kinogo.cc",
+        "kinogo.biz",
+        "uaserials.pro",
+        "ashdi.vip",
+        "lavakino.cc"
+      ],
+      "resourceTypes": [
+        "script",
+        "xmlhttprequest",
+        "sub_frame",
+        "image",
+        "media",
+        "stylesheet",
+        "ping"
+      ]
+    }
+  },
+  {
+    "id": 16,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "||adwadvert.com.ua^",
+      "topDomains": [
+        "uakino.me",
+        "uakino.best",
+        "rezka.ag",
+        "rezka.me",
+        "rezka.ad",
+        "rezka.cc",
+        "kinogo.cc",
+        "kinogo.biz",
+        "uaserials.pro",
+        "ashdi.vip",
+        "lavakino.cc"
+      ],
+      "resourceTypes": [
+        "script",
+        "xmlhttprequest",
+        "sub_frame",
+        "image",
+        "media",
+        "stylesheet",
+        "ping"
+      ]
+    }
+  },
+  {
+    "id": 17,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "||trafficdok.com^",
+      "topDomains": [
+        "uakino.me",
+        "uakino.best",
+        "rezka.ag",
+        "rezka.me",
+        "rezka.ad",
+        "rezka.cc",
+        "kinogo.cc",
+        "kinogo.biz",
+        "uaserials.pro",
+        "ashdi.vip",
+        "lavakino.cc"
+      ],
+      "resourceTypes": [
+        "script",
+        "xmlhttprequest",
+        "sub_frame",
+        "image",
+        "media",
+        "stylesheet",
+        "ping"
+      ]
+    }
+  },
+  {
+    "id": 18,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "||actionpay.ru^",
+      "topDomains": [
+        "uakino.me",
+        "uakino.best",
+        "rezka.ag",
+        "rezka.me",
+        "rezka.ad",
+        "rezka.cc",
+        "kinogo.cc",
+        "kinogo.biz",
+        "uaserials.pro",
+        "ashdi.vip",
+        "lavakino.cc"
+      ],
+      "resourceTypes": [
+        "script",
+        "xmlhttprequest",
+        "sub_frame",
+        "image",
+        "media",
+        "stylesheet",
+        "ping"
+      ]
+    }
+  },
+  {
+    "id": 19,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "||leadgidads.ru^",
+      "topDomains": [
+        "uakino.me",
+        "uakino.best",
+        "rezka.ag",
+        "rezka.me",
+        "rezka.ad",
+        "rezka.cc",
+        "kinogo.cc",
+        "kinogo.biz",
+        "uaserials.pro",
+        "ashdi.vip",
+        "lavakino.cc"
+      ],
+      "resourceTypes": [
+        "script",
+        "xmlhttprequest",
+        "sub_frame",
+        "image",
+        "media",
+        "stylesheet",
+        "ping"
+      ]
+    }
+  },
+  {
+    "id": 20,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "||srv224.com^",
+      "topDomains": [
+        "uakino.me",
+        "uakino.best",
+        "rezka.ag",
+        "rezka.me",
+        "rezka.ad",
+        "rezka.cc",
+        "kinogo.cc",
+        "kinogo.biz",
+        "uaserials.pro",
+        "ashdi.vip",
+        "lavakino.cc"
+      ],
+      "resourceTypes": [
+        "script",
+        "xmlhttprequest",
+        "sub_frame",
+        "image",
+        "media",
+        "stylesheet",
+        "ping"
+      ]
+    }
+  },
+  {
+    "id": 21,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "||schulist.link^",
+      "topDomains": [
+        "uakino.me",
+        "uakino.best",
+        "rezka.ag",
+        "rezka.me",
+        "rezka.ad",
+        "rezka.cc",
+        "kinogo.cc",
+        "kinogo.biz",
+        "uaserials.pro",
+        "ashdi.vip",
+        "lavakino.cc"
+      ],
+      "resourceTypes": [
+        "script",
+        "xmlhttprequest",
+        "sub_frame",
+        "image",
+        "media",
+        "stylesheet",
+        "ping"
+      ]
+    }
+  },
+  {
+    "id": 22,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "||popads.net^",
+      "topDomains": [
+        "uakino.me",
+        "uakino.best",
+        "rezka.ag",
+        "rezka.me",
+        "rezka.ad",
+        "rezka.cc",
+        "kinogo.cc",
+        "kinogo.biz",
+        "uaserials.pro",
+        "ashdi.vip",
+        "lavakino.cc"
+      ],
+      "resourceTypes": [
+        "script",
+        "xmlhttprequest",
+        "sub_frame",
+        "image",
+        "media",
+        "stylesheet",
+        "ping"
+      ]
+    }
+  },
+  {
+    "id": 23,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "||mgid.com^",
+      "topDomains": [
+        "uakino.me",
+        "uakino.best",
+        "rezka.ag",
+        "rezka.me",
+        "rezka.ad",
+        "rezka.cc",
+        "kinogo.cc",
+        "kinogo.biz",
+        "uaserials.pro",
+        "ashdi.vip",
+        "lavakino.cc"
+      ],
+      "resourceTypes": [
+        "script",
+        "xmlhttprequest",
+        "sub_frame",
+        "image",
+        "media",
+        "stylesheet",
+        "ping"
+      ]
+    }
+  },
+  {
+    "id": 24,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "||doubleclick.net^",
+      "topDomains": [
+        "uakino.me",
+        "uakino.best",
+        "rezka.ag",
+        "rezka.me",
+        "rezka.ad",
+        "rezka.cc",
+        "kinogo.cc",
+        "kinogo.biz",
+        "uaserials.pro",
+        "ashdi.vip",
+        "lavakino.cc"
+      ],
+      "resourceTypes": [
+        "script",
+        "xmlhttprequest",
+        "sub_frame",
+        "image",
+        "media",
+        "stylesheet",
+        "ping"
+      ]
+    }
+  },
+  {
+    "id": 25,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "||googlesyndication.com^",
+      "topDomains": [
+        "uakino.me",
+        "uakino.best",
+        "rezka.ag",
+        "rezka.me",
+        "rezka.ad",
+        "rezka.cc",
+        "kinogo.cc",
+        "kinogo.biz",
+        "uaserials.pro",
+        "ashdi.vip",
+        "lavakino.cc"
+      ],
+      "resourceTypes": [
+        "script",
+        "xmlhttprequest",
+        "sub_frame",
+        "image",
+        "media",
+        "stylesheet",
+        "ping"
+      ]
+    }
+  },
+  {
+    "id": 26,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "||googleadservices.com^",
+      "topDomains": [
+        "uakino.me",
+        "uakino.best",
+        "rezka.ag",
+        "rezka.me",
+        "rezka.ad",
+        "rezka.cc",
+        "kinogo.cc",
+        "kinogo.biz",
+        "uaserials.pro",
+        "ashdi.vip",
+        "lavakino.cc"
+      ],
+      "resourceTypes": [
+        "script",
+        "xmlhttprequest",
+        "sub_frame",
+        "image",
+        "media",
+        "stylesheet",
+        "ping"
+      ]
+    }
+  },
+  {
+    "id": 27,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "||adsterra.*^",
+      "topDomains": [
+        "uakino.me",
+        "uakino.best",
+        "rezka.ag",
+        "rezka.me",
+        "rezka.ad",
+        "rezka.cc",
+        "kinogo.cc",
+        "kinogo.biz",
+        "uaserials.pro",
+        "ashdi.vip",
+        "lavakino.cc"
+      ],
+      "resourceTypes": [
+        "script",
+        "xmlhttprequest",
+        "sub_frame",
+        "image",
+        "media",
+        "stylesheet",
+        "ping"
+      ]
+    }
+  },
+  {
+    "id": 28,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "||hilltopads.*^",
+      "topDomains": [
+        "uakino.me",
+        "uakino.best",
+        "rezka.ag",
+        "rezka.me",
+        "rezka.ad",
+        "rezka.cc",
+        "kinogo.cc",
+        "kinogo.biz",
+        "uaserials.pro",
+        "ashdi.vip",
+        "lavakino.cc"
+      ],
+      "resourceTypes": [
+        "script",
+        "xmlhttprequest",
+        "sub_frame",
+        "image",
+        "media",
+        "stylesheet",
+        "ping"
+      ]
+    }
+  },
+  {
+    "id": 29,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "||exoclick.*^",
+      "topDomains": [
+        "uakino.me",
+        "uakino.best",
+        "rezka.ag",
+        "rezka.me",
+        "rezka.ad",
+        "rezka.cc",
+        "kinogo.cc",
+        "kinogo.biz",
+        "uaserials.pro",
+        "ashdi.vip",
+        "lavakino.cc"
+      ],
+      "resourceTypes": [
+        "script",
+        "xmlhttprequest",
+        "sub_frame",
+        "image",
+        "media",
+        "stylesheet",
+        "ping"
+      ]
+    }
+  },
+  {
+    "id": 30,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "||trafficfactory.*^",
+      "topDomains": [
+        "uakino.me",
+        "uakino.best",
+        "rezka.ag",
+        "rezka.me",
+        "rezka.ad",
+        "rezka.cc",
+        "kinogo.cc",
+        "kinogo.biz",
+        "uaserials.pro",
+        "ashdi.vip",
+        "lavakino.cc"
+      ],
+      "resourceTypes": [
+        "script",
+        "xmlhttprequest",
+        "sub_frame",
+        "image",
+        "media",
+        "stylesheet",
+        "ping"
+      ]
+    }
+  },
+  {
+    "id": 31,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "||juicyads.*^",
+      "topDomains": [
+        "uakino.me",
+        "uakino.best",
+        "rezka.ag",
+        "rezka.me",
+        "rezka.ad",
+        "rezka.cc",
+        "kinogo.cc",
+        "kinogo.biz",
+        "uaserials.pro",
+        "ashdi.vip",
+        "lavakino.cc"
+      ],
+      "resourceTypes": [
+        "script",
+        "xmlhttprequest",
+        "sub_frame",
+        "image",
+        "media",
+        "stylesheet",
+        "ping"
+      ]
+    }
+  },
+  {
+    "id": 32,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "||trafficstars.*^",
+      "topDomains": [
+        "uakino.me",
+        "uakino.best",
+        "rezka.ag",
+        "rezka.me",
+        "rezka.ad",
+        "rezka.cc",
+        "kinogo.cc",
+        "kinogo.biz",
+        "uaserials.pro",
+        "ashdi.vip",
+        "lavakino.cc"
+      ],
+      "resourceTypes": [
+        "script",
+        "xmlhttprequest",
+        "sub_frame",
+        "image",
+        "media",
+        "stylesheet",
+        "ping"
+      ]
+    }
+  },
+  {
+    "id": 33,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "||clickadilla.*^",
+      "topDomains": [
+        "uakino.me",
+        "uakino.best",
+        "rezka.ag",
+        "rezka.me",
+        "rezka.ad",
+        "rezka.cc",
+        "kinogo.cc",
+        "kinogo.biz",
+        "uaserials.pro",
+        "ashdi.vip",
+        "lavakino.cc"
+      ],
+      "resourceTypes": [
+        "script",
+        "xmlhttprequest",
+        "sub_frame",
+        "image",
+        "media",
+        "stylesheet",
+        "ping"
+      ]
+    }
+  },
+  {
+    "id": 34,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "||admaven.*^",
+      "topDomains": [
+        "uakino.me",
+        "uakino.best",
+        "rezka.ag",
+        "rezka.me",
+        "rezka.ad",
+        "rezka.cc",
+        "kinogo.cc",
+        "kinogo.biz",
+        "uaserials.pro",
+        "ashdi.vip",
+        "lavakino.cc"
+      ],
+      "resourceTypes": [
+        "script",
+        "xmlhttprequest",
+        "sub_frame",
+        "image",
+        "media",
+        "stylesheet",
+        "ping"
+      ]
+    }
+  },
+  {
+    "id": 35,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "||rollerads.*^",
+      "topDomains": [
+        "uakino.me",
+        "uakino.best",
+        "rezka.ag",
+        "rezka.me",
+        "rezka.ad",
+        "rezka.cc",
+        "kinogo.cc",
+        "kinogo.biz",
+        "uaserials.pro",
+        "ashdi.vip",
+        "lavakino.cc"
+      ],
+      "resourceTypes": [
+        "script",
+        "xmlhttprequest",
+        "sub_frame",
+        "image",
+        "media",
+        "stylesheet",
+        "ping"
+      ]
+    }
+  },
+  {
+    "id": 36,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "||plugrush.*^",
+      "topDomains": [
+        "uakino.me",
+        "uakino.best",
+        "rezka.ag",
+        "rezka.me",
+        "rezka.ad",
+        "rezka.cc",
+        "kinogo.cc",
+        "kinogo.biz",
+        "uaserials.pro",
+        "ashdi.vip",
+        "lavakino.cc"
+      ],
+      "resourceTypes": [
+        "script",
+        "xmlhttprequest",
+        "sub_frame",
+        "image",
+        "media",
+        "stylesheet",
+        "ping"
+      ]
+    }
+  },
+  {
+    "id": 37,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "||revcontent.*^",
+      "topDomains": [
+        "uakino.me",
+        "uakino.best",
+        "rezka.ag",
+        "rezka.me",
+        "rezka.ad",
+        "rezka.cc",
+        "kinogo.cc",
+        "kinogo.biz",
+        "uaserials.pro",
+        "ashdi.vip",
+        "lavakino.cc"
+      ],
+      "resourceTypes": [
+        "script",
+        "xmlhttprequest",
+        "sub_frame",
+        "image",
+        "media",
+        "stylesheet",
+        "ping"
+      ]
+    }
+  },
+  {
+    "id": 38,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "||taboola.*^",
+      "topDomains": [
+        "uakino.me",
+        "uakino.best",
+        "rezka.ag",
+        "rezka.me",
+        "rezka.ad",
+        "rezka.cc",
+        "kinogo.cc",
+        "kinogo.biz",
+        "uaserials.pro",
+        "ashdi.vip",
+        "lavakino.cc"
+      ],
+      "resourceTypes": [
+        "script",
+        "xmlhttprequest",
+        "sub_frame",
+        "image",
+        "media",
+        "stylesheet",
+        "ping"
+      ]
+    }
+  },
+  {
+    "id": 39,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "||outbrain.*^",
+      "topDomains": [
+        "uakino.me",
+        "uakino.best",
+        "rezka.ag",
+        "rezka.me",
+        "rezka.ad",
+        "rezka.cc",
+        "kinogo.cc",
+        "kinogo.biz",
+        "uaserials.pro",
+        "ashdi.vip",
+        "lavakino.cc"
+      ],
+      "resourceTypes": [
+        "script",
+        "xmlhttprequest",
+        "sub_frame",
+        "image",
+        "media",
+        "stylesheet",
+        "ping"
+      ]
+    }
+  },
+  {
+    "id": 40,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "||videoadex.*^",
+      "topDomains": [
+        "uakino.me",
+        "uakino.best",
+        "rezka.ag",
+        "rezka.me",
+        "rezka.ad",
+        "rezka.cc",
+        "kinogo.cc",
+        "kinogo.biz",
+        "uaserials.pro",
+        "ashdi.vip",
+        "lavakino.cc"
+      ],
+      "resourceTypes": [
+        "script",
+        "xmlhttprequest",
+        "sub_frame",
+        "image",
+        "media",
+        "stylesheet",
+        "ping"
+      ]
+    }
+  },
+  {
+    "id": 41,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "||ad-delivery.*^",
+      "topDomains": [
+        "uakino.me",
+        "uakino.best",
+        "rezka.ag",
+        "rezka.me",
+        "rezka.ad",
+        "rezka.cc",
+        "kinogo.cc",
+        "kinogo.biz",
+        "uaserials.pro",
+        "ashdi.vip",
+        "lavakino.cc"
+      ],
+      "resourceTypes": [
+        "script",
+        "xmlhttprequest",
+        "sub_frame",
+        "image",
+        "media",
+        "stylesheet",
+        "ping"
+      ]
+    }
+  },
+  {
+    "id": 42,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "||propellerads.*^",
+      "topDomains": [
+        "uakino.me",
+        "uakino.best",
+        "rezka.ag",
+        "rezka.me",
+        "rezka.ad",
+        "rezka.cc",
+        "kinogo.cc",
+        "kinogo.biz",
+        "uaserials.pro",
+        "ashdi.vip",
+        "lavakino.cc"
+      ],
+      "resourceTypes": [
+        "script",
+        "xmlhttprequest",
+        "sub_frame",
+        "image",
+        "media",
+        "stylesheet",
+        "ping"
+      ]
+    }
+  },
+  {
+    "id": 43,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "||prebid.*^",
+      "topDomains": [
+        "uakino.me",
+        "uakino.best",
+        "rezka.ag",
+        "rezka.me",
+        "rezka.ad",
+        "rezka.cc",
+        "kinogo.cc",
+        "kinogo.biz",
+        "uaserials.pro",
+        "ashdi.vip",
+        "lavakino.cc"
+      ],
+      "resourceTypes": [
+        "script",
+        "xmlhttprequest",
+        "sub_frame",
+        "image",
+        "media",
+        "stylesheet",
+        "ping"
+      ]
+    }
+  }
 ]
